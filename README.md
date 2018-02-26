@@ -5,6 +5,9 @@ For context, see [KyleAMathews/deepmerge/issues/97](https://github.com/KyleAMath
 ## To reproduce
 
 ```sh
+git@github.com:perry-mitchell/repo-deepmerge-webpack.git
+cd repo-deepmerge-webpack
+
 npm install
 npm test
 ```
