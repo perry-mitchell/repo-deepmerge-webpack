@@ -1,4 +1,4 @@
-# Repo repo for deepmerge bug /w webpack
+# Reproduction repo for deepmerge bug /w webpack
 
 ## Installation
 Run `npm install` to set up the project.
