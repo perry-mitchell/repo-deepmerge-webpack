@@ -1,15 +1,31 @@
 # Reproduction repo for deepmerge bug /w webpack
 
-## Installation
-Run `npm install` to set up the project.
+For context, see [KyleAMathews/deepmerge/issues/97](https://github.com/KyleAMathews/deepmerge/issues/97) and [KyleAMathews/deepmerge/issues/87](https://github.com/KyleAMathews/deepmerge/issues/87).
 
-## Testing
-Run `npm start` to start the dev server, and inject the following the devtools of your browser:
+## To reproduce
 
-```javascript
-(function() {
-var s = document.createElement("script");
-s.src = "http://localhost:8080/dist.js";
-document.head.appendChild(s);
-})();
+```sh
+git@github.com:perry-mitchell/repo-deepmerge-webpack.git
+cd repo-deepmerge-webpack
+
+npm install
+npm test
 ```
+
+## Further detail
+
+If you change the first line of `index.js` to
+
+```js
+import merge from "deepmerge"
+```
+
+then Webpack correctly returns the function.
+
+If you do a CommonJS import:
+
+```js
+const merge = require("deepmerge")
+```
+
+then Webpack returns the `exports` property on whatever was exported by deepmerge, which is `undefined`.
